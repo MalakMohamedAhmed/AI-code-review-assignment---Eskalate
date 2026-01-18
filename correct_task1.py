@@ -8,8 +8,8 @@ def is_numeric_string(s):
     
 
 def calculate_average_order_value(orders):
-    # in the begining we need to make sure that the 'orders' paramter is a list or a tuple
-    # to avoid any problems that could happen due to any invalid inputs
+    # in the begining we need to make sure that the 'orders' paramter is a list or a dictionary
+    # to avoid any problems that could happen due to any invalid inputs, if not we need to stop the preocess
     if not isinstance(orders, (list, dict)):
         raise ValueError("Input must be a list or dictionary.")
         
@@ -59,5 +59,6 @@ def calculate_average_order_value(orders):
 # ]
 # orders = "orders"
 # print(calculate_average_order_value(orders))
+
 
 

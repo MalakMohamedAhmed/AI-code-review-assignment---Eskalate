@@ -10,7 +10,12 @@ def is_numeric_string(value):
     except (ValueError, TypeError): # otherwise we should throw an error
         return False
 
-def average_valid_measurements(values): # assumed that "values" is always going to be a list
+def average_valid_measurements(values):
+    # in the begining we need to make sure that the 'values' paramter is a list or a tuple
+    # to avoid any problems that could happen due to any invalid inputs, if not we need to stop the preocess
+    if not isinstance(values, (list, tuple)):
+        raise ValueError("Input must be a list or tuple.")
+        
     total_of_values = 0
     number_of_not_null_values = 0 # for counting the actual not null values
     total_number_of_values = len(values) # number of all the values
@@ -42,4 +47,5 @@ def average_valid_measurements(values): # assumed that "values" is always going 
 # values = [10, float('inf'), 20]
 # values = [10, float('nan'), 20]
 # values = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+# values = "values"
 # print(average_valid_measurements(values))

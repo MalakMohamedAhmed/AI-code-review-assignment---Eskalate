@@ -2,7 +2,7 @@
 
 ## Candidate
 - Name: Malak Mohamed Ahmed Mohamed Abdelkareem
-- Approximate time spent:
+- Approximate time spent: 2-3 hours
 
 ---
 
@@ -10,6 +10,7 @@
 
 ## 1) Code Review Findings
 ### Critical bugs
+- Error for invalid input
 - incorrect logic, dividing by the total number of variables when we are supposed to divide by the number of not cancelled orders
 - dividing by zero
 - TypeError from invalid operations
@@ -71,9 +72,15 @@ If you were to test this function, what areas or scenarios would you focus on, a
 
 ## 1) Code Review Findings
 ### Critical bugs
-- 
+- Error for invalid input
+- inacurate output, claiming some strings to be a valid email when they are not
+- incorrect logic
+- invalid values inside the 'emails' paramter
 
 ### Edge cases & risks
+- strings containing multiple '@'
+- invalied value for 'email' values (not strings)
+- invalid inputs (not a list or a tuple)
 - 
 
 ### Code quality / design issues
@@ -115,11 +122,11 @@ If you were to test this function, what areas or scenarios would you focus on, a
 
 ## 1) Code Review Findings
 ### Critical bugs
+- Error for invalid input
 - incorrect logic, dividing by the total number of variables when we are supposed to divide by the number of not cancelled orders
 - dividing by zero
 - precision issues
 - TypeError from invalid operations
-- KeyError from missing dictionary keys 
 
 ### Edge cases & risks
 - Handling invalid inputs like non-iterables
@@ -169,4 +176,5 @@ If you were to test this function, what areas or scenarios would you focus on, a
 - Decision: Approve / Request Changes / Reject
 - Justification:
 - Confidence & unknowns:
+
 

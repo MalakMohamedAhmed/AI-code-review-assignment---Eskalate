@@ -3,7 +3,7 @@ import re
 
 def count_valid_emails(emails):
     # in the begining we need to make sure that the 'emails' paramter is a list or a tuple
-    # to avoid any problems that could happen due to any invalid inputs, if not we need to stop the preocess
+    # to avoid any problems that could happen due to any invalid inputs
     if not isinstance(emails, (list, tuple)):
         raise ValueError("Input must be a list or tuple of strings.")
     
@@ -18,5 +18,13 @@ def count_valid_emails(emails):
             if email_pattern.match(email.lower()):  # match the email with the regular expression created above to make sure it's valid
                 count_of_valid_emails += 1
 
-
     return count_of_valid_emails
+
+# Some Test cases i used to make sure i handled all the edge cases i mentioned
+
+# emails = []
+# emails = ["user@domain@com"]
+# emails = ["user@"]
+# emails = ["valid@example.com", 123]
+# emails = "user@example.com"
+# print(count_valid_emails(emails))

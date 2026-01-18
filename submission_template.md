@@ -31,8 +31,10 @@
 
 ## 2) Proposed Fixes / Improvements
 ### Summary of changes
+- checked in the begining that the given 'orders' parameter is a list or a dictionary
 - started counting the cancelled orders and divide by this number to find the average
 - checked if 'orders' empty (no orders), if so then just return 0
+- checked each order in the list whether it is a dictionary or not
 - check first if the main two attributes 'amount' and 'status' do exist 
 - convert the amount to a string to ensure it's validity
 - created another function (is_numeric_string) for making sure that the 'amount' has a valied value to proceed with the calculations
@@ -81,14 +83,20 @@ If you were to test this function, what areas or scenarios would you focus on, a
 - strings containing multiple '@'
 - invalied value for 'email' values (not strings)
 - invalid inputs (not a list or a tuple)
-- 
+- empty 'emails' list or tuple given
 
 ### Code quality / design issues
-- 
+- names of the variables weren't clear
+- No error handling or logging
+- lack of comments which made the code a bit confusing at first
 
 ## 2) Proposed Fixes / Improvements
 ### Summary of changes
-- 
+- used regular expressions to check whether the emails are valied or not
+- checked in the begining that the given 'emails' parameter is a list or a tuple
+- created a regular expression that represents the emails constraints
+- checked each email in the list whether it is a string or not
+- striped the unnessesary whitespaces for each email (each iteration)
 
 ### Corrected code
 See `correct_task2.py`
@@ -141,6 +149,7 @@ If you were to test this function, what areas or scenarios would you focus on, a
 
 ## 2) Proposed Fixes / Improvements
 ### Summary of changes
+- checked in the begining that the given 'values' parameter is a list or a tuple
 - started counting the not null values, instead of working with the total number of values
 - checked if 'values' empty (no values), if so then just return 0
 - created another function (is_numeric_string) for making sure that the 'value' has a valied value to proceed with the calculations
@@ -176,5 +185,6 @@ If you were to test this function, what areas or scenarios would you focus on, a
 - Decision: Approve / Request Changes / Reject
 - Justification:
 - Confidence & unknowns:
+
 
 

@@ -12,6 +12,10 @@ def calculate_average_order_value(orders):
     number_of_not_cancelled_orders = 0 # we need to keep track of number of orders that are not cancelled
     total_number_of_orders = len(orders)
 
+    if total_number_of_orders == 0: # in case 'orders' was completly empty
+        print("We have no orders !!")
+        return 0
+        
     for order in orders:
         if "status" in order and "amount" in order: # if we received the input without either of the two main attributes "status" and "amount"
             if order["status"] != "cancelled":
@@ -50,3 +54,4 @@ def calculate_average_order_value(orders):
 # ]
 
 # print(calculate_average_order_value(orders))
+

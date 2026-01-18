@@ -1,7 +1,7 @@
 # AI Code Review Assignment (Python)
 
 ## Candidate
-- Name:
+- Name: Malak Mohamed Ahmed Mohamed Abdelkareem
 - Approximate time spent:
 
 ---
@@ -169,3 +169,4 @@ If you were to test this function, what areas or scenarios would you focus on, a
 - Decision: Approve / Request Changes / Reject
 - Justification:
 - Confidence & unknowns:
+

@@ -8,8 +8,8 @@ def is_numeric_string(s):
     
 
 def calculate_average_order_value(orders):
-    # in the begining we need to make sure that the 'orders' paramter is a list or a dictionary
-    # to avoid any problems that could happen due to any invalid inputs, if not we need to stop the preocess
+    # in the begining we need to make sure that the 'orders' paramter is a list or a tuple
+    # to avoid any problems that could happen due to any invalid inputs
     if not isinstance(orders, (list, dict)):
         raise ValueError("Input must be a list or dictionary.")
         
@@ -22,15 +22,16 @@ def calculate_average_order_value(orders):
         return 0
         
     for order in orders:
-        if "status" in order and "amount" in order: # if we received the input without either of the two main attributes "status" and "amount"
-            if order["status"] != "cancelled":
-                amount_str = str(order["amount"])
-                if is_numeric_string(amount_str): # to handle if the 'amount' attribute has an invalied value
-                    number_of_not_cancelled_orders += 1
-                    total_value += float(order["amount"]) # in case we received the 'amount' as a string
+        if isinstance(order, dict):
+            if "status" in order and "amount" in order: # if we received the input without either of the two main attributes "status" and "amount"
+                if order["status"] != "cancelled":
+                    amount_str = str(order["amount"])
+                    if is_numeric_string(amount_str): # to handle if the 'amount' attribute has an invalied value
+                        number_of_not_cancelled_orders += 1
+                        total_value += float(order["amount"]) # in case we received the 'amount' as a string
 
     if number_of_not_cancelled_orders == 0: # in case all the orders were cancelled
-        print("All orders were cancelled !!") # need to send an alert in this case
+        print("All orders were cancelled or invalied data !!") # need to send an alert in this case
         return 0
     
     return total_value / number_of_not_cancelled_orders # then divide by the number of orders that weren't cancelled
@@ -58,7 +59,7 @@ def calculate_average_order_value(orders):
 #     {"status": "completed", "amount": "invalid"}  # "amount" is a string, not numeric
 # ]
 # orders = "orders"
+# orders = [
+#     "123"
+# ]
 # print(calculate_average_order_value(orders))
-
-
-

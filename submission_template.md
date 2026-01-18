@@ -35,9 +35,9 @@
 - check first if the main two attributes 'amount' and 'status' do exist 
 - convert the amount to a string to ensure it's validity
 - created another function (is_numeric_string) for making sure that the 'amount' has a valied value to proceed with the calculations
-- after looping over the orders, if the number of cancelled orders is zero then return 0 (all the orders were cacelled) to avoid dividing by zero
+- after looping over the orders, if the number of not cancelled orders is zero then return 0 (all the orders were cacelled) to avoid dividing by zero
 - to calculate the average divid by the number of cancelled orders not the total number of orders
-- added dome testcases to test my code while working on it
+- added some testcases to test my code while working on it
 
 ### Corrected code
 See `correct_task1.py`
@@ -46,8 +46,8 @@ See `correct_task1.py`
 
  ### Testing Considerations
 If you were to test this function, what areas or scenarios would you focus on, and why?
-- will review the code quickly to understand what is going on in there, making sure that the code is clean , contains some comments, the variables have names that referes to the values or porpose, having a reasonable amount of spacing between the lines of code dividing the different parts of the code, if i can't understand the code i won't be able to check whether it is working or not
-- will work at first as a programmer who wants to cod the whole thing from scratch and then generate a couple of test cases trying to makre the code fail as much as i can to handle all the types of users my code could face
+- will review the code quickly to understand what is going on in there, making sure that the code is clean , contains some comments, the variables have names that referes to the values or porpose, and have a reasonable amount of spacing between the lines of code separating the different parts of the code, if i can't understand the code i won't be able to check whether it is working or not
+- will work at first as a programmer who wants to code the whole thing from scratch and then generate a couple of test cases trying to make the code fail as much as i can to handle all the types of users my code could face
 
 ## 3) Explanation Review & Rewrite
 ### AI-generated explanation (original)
@@ -91,6 +91,8 @@ See `correct_task2.py`
 
 ### Testing Considerations
 If you were to test this function, what areas or scenarios would you focus on, and why?
+- will review the code quickly to understand what is going on in there, making sure that the code is clean , contains some comments, the variables have names that referes to the values or porpose, and have a reasonable amount of spacing between the lines of code separating the different parts of the code, if i can't understand the code i won't be able to check whether it is working or not
+- will work at first as a programmer who wants to code the whole thing from scratch and then generate a couple of test cases trying to make the code fail as much as i can to handle all the types of users my code could face
 
 ## 3) Explanation Review & Rewrite
 ### AI-generated explanation (original)
@@ -113,17 +115,32 @@ If you were to test this function, what areas or scenarios would you focus on, a
 
 ## 1) Code Review Findings
 ### Critical bugs
-- 
+- incorrect logic, dividing by the total number of variables when we are supposed to divide by the number of not cancelled orders
+- dividing by zero
+- precision issues
+- TypeError from invalid operations
+- KeyError from missing dictionary keys 
 
 ### Edge cases & risks
-- 
+- Handling invalid inputs like non-iterables
+- invalied values
+- not having any values
+- all the values are null
 
 ### Code quality / design issues
-- 
+- names of the variables weren't clear
+- No error handling or logging
+- lack of comments which made the code a bit confusing at first
 
 ## 2) Proposed Fixes / Improvements
 ### Summary of changes
-- 
+- started counting the not null values, instead of working with the total number of values
+- checked if 'values' empty (no values), if so then just return 0
+- created another function (is_numeric_string) for making sure that the 'value' has a valied value to proceed with the calculations
+- after looping over the values, if the number of not null values is zero then return 0 (all the orders were cacelled) to avoid dividing by zero
+- to calculate the average divid by the number of not null values not the total number of values
+- rounded the average before returning it in case of having precision issues from adding many float numbers
+- added some testcases to test my code while working on it
 
 ### Corrected code
 See `correct_task3.py`
@@ -132,6 +149,8 @@ See `correct_task3.py`
 
 ### Testing Considerations
 If you were to test this function, what areas or scenarios would you focus on, and why?
+- will review the code quickly to understand what is going on in there, making sure that the code is clean , contains some comments, the variables have names that referes to the values or porpose, and have a reasonable amount of spacing between the lines of code separating the different parts of the code, if i can't understand the code i won't be able to check whether it is working or not
+- will work at first as a programmer who wants to code the whole thing from scratch and then generate a couple of test cases trying to make the code fail as much as i can to handle all the types of users my code could face
 
 
 ## 3) Explanation Review & Rewrite
@@ -139,10 +158,12 @@ If you were to test this function, what areas or scenarios would you focus on, a
 > This function calculates the average of valid measurements by ignoring missing values (None) and averaging the remaining values. It safely handles mixed input types and ensures an accurate average
 
 ### Issues in original explanation
-- 
+- not explaining the process of calculating the average
+- usws some unclear words that can have some double meanings
+- need a bit of details
 
 ### Rewritten explanation
-- 
+- this function calculates the average amount of valid measurments by adding the not null values and dividing the sum by total number of not null values with the help of another helper function (is_numeric_string) for further checking and avoidance for more edge cases, it safely handles wrong input types and ensures an accurate average.
 
 ## 4) Final Judgment
 - Decision: Approve / Request Changes / Reject

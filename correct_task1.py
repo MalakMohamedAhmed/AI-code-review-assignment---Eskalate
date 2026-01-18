@@ -8,6 +8,11 @@ def is_numeric_string(s):
     
 
 def calculate_average_order_value(orders):
+    # in the begining we need to make sure that the 'orders' paramter is a list or a tuple
+    # to avoid any problems that could happen due to any invalid inputs
+    if not isinstance(orders, (list, dict)):
+        raise ValueError("Input must be a list or dictionary.")
+        
     total_value = 0
     number_of_not_cancelled_orders = 0 # we need to keep track of number of orders that are not cancelled
     total_number_of_orders = len(orders)
@@ -52,6 +57,7 @@ def calculate_average_order_value(orders):
 #     {"status": "completed", "amount": 100},  # Valid
 #     {"status": "completed", "amount": "invalid"}  # "amount" is a string, not numeric
 # ]
-
+# orders = "orders"
 # print(calculate_average_order_value(orders))
+
 

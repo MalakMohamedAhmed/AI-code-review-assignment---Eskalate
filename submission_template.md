@@ -114,10 +114,10 @@ If you were to test this function, what areas or scenarios would you focus on, a
 > This function counts the number of valid email addresses in the input list. It safely ignores invalid entries and handles empty input correctly.
 
 ### Issues in original explanation
-- 
+- doesn't contain any details about how the checking process is going to happen or what are the used tools and techniques 
 
 ### Rewritten explanation
-- 
+- This function counts the number of valid email addresses in an input list by using regular expression, the preocess is all about matching each email with a regular expression that represents the email address constraints, if the match is successful then the email is valid otherwise it is not, is successfully ignores empty and invalied inputs.
 
 ## 4) Final Judgment
 - Decision: Approve / Request Changes / Reject
@@ -185,6 +185,7 @@ If you were to test this function, what areas or scenarios would you focus on, a
 - Decision: Approve / Request Changes / Reject
 - Justification:
 - Confidence & unknowns:
+
 
 
 

@@ -1,4 +1,4 @@
-# it makes nosesnse to only check for the existance of '@' to make sure it is a valied email, that's why i'm using the regular expression
+# it makes nosense to only check for the existance of '@' to make sure it is a valied email, that's why i'm using the regular expressions
 import re
 
 def count_valid_emails(emails):

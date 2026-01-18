@@ -1,7 +1,7 @@
 # added this function for making sure that the "amount" is a numerical value, not a null, invaled, or any other thing
-def is_numeric_string(s):
+def is_numeric_string(order):
     try:
-        float(s) # try converting it to a float, if it was converted successfully then it has a valied value
+        float(order) # try converting it to a float, if it was converted successfully then it has a valied value
         return True
     except (ValueError, TypeError): # otherwise we should throw an error
         return False

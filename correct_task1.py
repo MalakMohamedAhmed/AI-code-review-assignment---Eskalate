@@ -16,7 +16,7 @@ def calculate_average_order_value(orders):
         if "status" in order and "amount" in order: # if we received the input without either of the two main attributes "status" and "amount"
             if order["status"] != "cancelled":
                 amount_str = str(order["amount"])
-                if is_numeric_string(amount_str): # to handle if the amount attribute is null
+                if is_numeric_string(amount_str): # to handle if the 'amount' attribute has an invalied value
                     number_of_not_cancelled_orders += 1
                     total_value += float(order["amount"]) # in case we received the 'amount' as a string
 
@@ -48,4 +48,5 @@ def calculate_average_order_value(orders):
 #     {"status": "completed", "amount": 100},  # Valid
 #     {"status": "completed", "amount": "invalid"}  # "amount" is a string, not numeric
 # ]
+
 # print(calculate_average_order_value(orders))
